@@ -49,9 +49,4 @@ possible causes:
 
 $ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
 
-When you executing the program and "rror=13, Permission Denied" happened.
-Open the Terminal, and direct into the EvolutinaryTestingMethod folder.
-Run the following command line:
- chmod u+x runExperiments.sh
-
 
