@@ -68,7 +68,7 @@ $ chmod u+x run.sh
 *** EXECUTE THE EXPERIMENTS ***
 To generate a group of evolved test cases, open the Termanil and direct to
 the EvolutionaryTestingMethod and execute:
-$ ./run.sh
+$ java -jar EvolutionaryTestingMethod.jar
 
 *** VERSION SUPPORT FOR ARGOS ***
 This evolutionary test case generator works fine with version 3.0.0 - beta29
