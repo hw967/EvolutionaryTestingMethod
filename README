@@ -4,8 +4,6 @@
 ==                              ==
 ==================================
 
-DATE: 10/08/2018
-
 *** INTRODUCTION ***
 
 In this package you'll find the evolutinary test case generator for
@@ -74,7 +72,4 @@ $ ./run.sh
 This evolutionary test case generator works fine with version 3.0.0 - beta29
 of ARGoS, and have never been checked with any version of ARGoS later than
 beta29.
-
-
-
 
