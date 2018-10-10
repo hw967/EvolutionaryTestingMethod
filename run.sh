@@ -1,3 +1,3 @@
 #!/bin/bash
 
-java -jar EvolutionaryTestingMethod.jar
+java -jar operator/EvolutionaryTestingMethod.jar
