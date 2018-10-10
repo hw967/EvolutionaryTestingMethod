@@ -3,7 +3,7 @@ package operator;
 public class Operator {
 	public static void main(String[] args){
 		Operator op = new Operator();
-		op.runExperiments("./runExperiments.sh");
+		op.runExperiments("./operator/operator/runExperiments.sh");
 	}
 	
 	private void runExperiments(String file){
