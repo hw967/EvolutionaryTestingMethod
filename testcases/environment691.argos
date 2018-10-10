@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<argos-configuration>
+  <framework>
+    <system threads="0"/>
+    <experiment length="200" random_seed="124" ticks_per_second="10"/>
+  </framework>
+  <controllers>
+    <footbot_flocking_controller id="ffc" library="build/controllers/footbot_flocking/libfootbot_flocking">
+      <actuators>
+        <differential_steering implementation="default"/>
+        <leds implementation="default" medium="leds"/>
+      </actuators>
+      <sensors>
+        <footbot_light implementation="rot_z_only" show_rays="true"/>
+        <colored_blob_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="true"/>
+      </sensors>
+      <params>
+        <wheel_turning hard_turn_angle_threshold="90" max_speed="10" no_turn_angle_threshold="10" soft_turn_angle_threshold="70"/>
+        <flocking exponent="2" gain="1000" target_distance="75"/>
+      </params>
+    </footbot_flocking_controller>
+  </controllers>
+  <arena center="0,0,0.5" size="6,6,1">
+    <floor id="floor" pixels_per_meter="50" source="loop_functions"/>
+    <box id="Wall691" movable="false" size="6.0,0.1,1">
+      <body orientation="0,0,0" position="0.0,3.0,0"/>
+    </box>
+    <box id="Wall692" movable="false" size="6.0,0.1,1">
+      <body orientation="0,0,0" position="0.0,-3.0,0"/>
+    </box>
+    <box id="Wall693" movable="false" size="6.0,0.1,1">
+      <body orientation="270,0,0" position="3.0,0.0,0"/>
+    </box>
+    <box id="Wall694" movable="false" size="6.0,0.1,1">
+      <body orientation="90,0,0" position="-3.0,0.0,0"/>
+    </box>
+    <box id="Wall695" movable="false" size="3.3,0.3,1">
+      <body orientation="196,0,0" position="1.2,-1.6,0"/>
+    </box>
+    <box id="Wall696" movable="false" size="1.0,0.4,1">
+      <body orientation="148,0,0" position="1.7,2.3,0"/>
+    </box>
+    <box id="Wall697" movable="false" size="0.6,0.2,1">
+      <body orientation="136,0,0" position="-1.4,-0.8,0"/>
+    </box>
+    <box id="Wall698" movable="false" size="1.0,0.3,1">
+      <body orientation="90,0,0" position="-1.2,0.8,0"/>
+    </box>
+    <box id="Wall699" movable="false" size="2.6,0.4,1">
+      <body orientation="220,0,0" position="0.5,2.9,0"/>
+    </box>
+    <box id="Wall700" movable="false" size="2.1,0.2,1">
+      <body orientation="170,0,0" position="0.6,-2.2,0"/>
+    </box>
+    <light color="yellow" id="light" intensity="3.0" medium="leds" orientation="0,0,0" position="-2.5,-2.5,0.5"/>
+    <distribute>
+      <position max="3,3,0" method="uniform" min="2,2,0"/>
+      <orientation mean="0,0,0" method="gaussian" std_dev="360,0,0"/>
+      <entity max_trials="100" quantity="10">
+        <foot-bot id="fb" omnidirectional_camera_aperture="80">
+          <controller config="ffc"/>
+        </foot-bot>
+      </entity>
+    </distribute>
+  </arena>
+  <physics_engines>
+    <dynamics2d id="dyn2d"/>
+  </physics_engines>
+  <media>
+    <led id="leds"/>
+  </media>
+</argos-configuration>

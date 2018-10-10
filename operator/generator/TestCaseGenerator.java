@@ -50,6 +50,11 @@ public class TestCaseGenerator {
 		argosConfiguration();
 	}
 	
+	public TestCaseGenerator(int n){
+		count = n;
+		argosConfiguration();
+	}
+	
 	private Element createBox(Element box, Element body, Descriptor des){
 		
 		String id, size, movable, position, orientation;
@@ -86,7 +91,7 @@ public class TestCaseGenerator {
 			framework.appendChild(system);
 			
 			experiment = doc.createElement("experiment");
-			experiment.setAttribute("length", "0");
+			experiment.setAttribute("length", "200");
 			experiment.setAttribute("ticks_per_second","10");
 			experiment.setAttribute("random_seed", "124");
 			
@@ -259,7 +264,7 @@ public class TestCaseGenerator {
 			aConfig.appendChild(media);
 			
 			// Visualization
-			visualization = doc.createElement("visualization");			
+			/*visualization = doc.createElement("visualization");			
 			qt_opengl = doc.createElement("qt-opengl");			
 			camera = doc.createElement("camera");		
 			placement = doc.createElement("placement");			
@@ -270,7 +275,7 @@ public class TestCaseGenerator {
 			camera.appendChild(placement);
 			qt_opengl.appendChild(camera);
 			visualization.appendChild(qt_opengl);
-			aConfig.appendChild(visualization);
+			aConfig.appendChild(visualization);*/
 			
 			
 			transformerFactory = TransformerFactory.newInstance();
@@ -282,15 +287,15 @@ public class TestCaseGenerator {
 			boolean exist = true;
 			int filecount = 0;
 			do{
-				File f = new File("environment"+filecount+".argos");
+				File f = new File("testcases/environment"+filecount+".argos");
 				if(f.exists())
 					filecount++;
 				else
 					exist = false;
 			}while(exist);
-			result = new StreamResult(new File("environment"+filecount+".argos"));
+			result = new StreamResult(new File("testcases/environment"+filecount+".argos"));
 			transformer.transform(source, result);
-			System.out.println("environment"+filecount+".argos created");
+			System.out.println("testcases/environment"+filecount+".argos created");
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -303,7 +308,9 @@ public class TestCaseGenerator {
 		}
 	}
 	public static void main(String argv[]) {
-		new TestCaseGenerator();
+		for(int i = 0; i<1000; i++){
+			new TestCaseGenerator(i);
+		}
 	}
 	
 }

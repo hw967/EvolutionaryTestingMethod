@@ -1,0 +1,4 @@
+#!/bin/bash
+
+NUMBER=0
+argos3 -c testcases/environment$NUMBER.argos

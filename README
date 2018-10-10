@@ -13,8 +13,11 @@ To generate test cases and run experiments with ARGoS, you need to:
  1.install ARGoS3 system-wide.
  2.drop your swarm robotic controller in the controllers/ directory 
 	and loop_functions into loop_functions/ directory.
- 3.configure the test case in TestCaseGenerator
- 4.configure the experiments in runExperiments
+ 3.configure the test case in TestCaseGenerator(visualization is
+	currently turned off, visualization can be turned on when generating
+	the case tests). Generated test cases are stored in testcase folder.
+ 4.configure the number of experiments needed to be executed
+	in runExperiments.
 
 
 *** COMPILATION ***
